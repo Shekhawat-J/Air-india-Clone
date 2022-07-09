@@ -86,3 +86,8 @@ exports.signin = async (req, res) => {
 
     res.status(201).send(userResponse);
 }
+
+
+/**
+ * controller for logout`
+ */

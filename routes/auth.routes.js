@@ -3,10 +3,11 @@
  */
 
 const authController = require('../controllers/auth.controller');
+const {verifySignUp} = require('../middlewares')
 
 module.exports = (app) => {
     
-    app.post("/aic/api/v1/auth/signup", authController.signup);
+    app.post("/aic/api/v1/auth/signup", [verifySignUp.verifySingUpRequest] ,authController.signup);
     
-    app.get("/aic/api/v1/auth/signin", authController.signin);
+    app.post("/aic/api/v1/auth/signin", authController.signin);
 }
